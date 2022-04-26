@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: quota-name
+  namespace: quota-ns
+spec:
+  hard:
+    requests.cpu: '1'
+    requests.memory: 1Gi
+    limits.cpu: '2'
+    limits.memory: 2Gi
+    pods: '2'
+    persistentvolumeclaims: '5'
+    requests.storage: 5Gi
