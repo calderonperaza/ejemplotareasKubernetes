@@ -16,6 +16,7 @@ spec:
       containers:
         - name: backend
           image: calderonperaza/ejemplobackend:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 3000
           env:

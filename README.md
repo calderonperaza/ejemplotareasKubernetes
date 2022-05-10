@@ -20,6 +20,9 @@ Es un proyecto en Vue 2, emplea vuetify y consume la api rest del backend, este 
 [ejemploTareasFrontEnd](https://github.com/calderonperaza/ejemplotareasfrontend)
 Dentro del proyecto encontrará el respectivo DockerFile con la definición del contenedor que luego para poderse desplegar se encuentra publicado en docker hub:
 [imagenEjemploTareasFrontEnd](https://hub.docker.com/repository/docker/calderonperaza/ejemplofrontend)
+el backend se refiere colocando la ip del cluster y el puerto expuesto por el servicio backend
+por ejemplo:
+axios.defaults.baseURL="http://192.178.103.15:30000"
 
 ## Importante
 
