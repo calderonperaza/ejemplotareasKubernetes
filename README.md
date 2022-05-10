@@ -14,6 +14,14 @@ Es un proyecto en Node JS, una api rest que conecta a una base de datos NO SQL d
 Dentro del proyecto encontrará el respectivo DockerFile con la definición del contenedor que luego para poderse desplegar se encuentra publicado en docker hub:
 [DockerImagen-Ejemplo-Tarea-Backend](https://hub.docker.com/repository/docker/calderonperaza/ejemplobackend)
 
+Se debe indicar la url para acceder a la base de datos mongoDB, si no se indica, va acceder a una base de datos por defecto en la nube Atlas, pero Atlas no es accesible dentro del cluster, por lo que debe indicar el acceso del servicio que tiene la base de datos.
+env:
+            - name: MONGO_URL
+              value: mongodb://mongo:27017/ejemplo
+
+ahi puede sustutir por su url o si esta dentro de un kubernetes apuntar a un service, en este ejemplo hay un service llamado mongodb, esto se hace en el deployment
+
+
 ### FrontEnd
 
 Es un proyecto en Vue 2, emplea vuetify y consume la api rest del backend, este proyecto lo encuentra en el siguiente enlace:
