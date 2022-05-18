@@ -7,7 +7,7 @@ spec:
   selector:
     matchLabels:
       app: frontend
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:
@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: calderonperaza/ejemplofrontend:latest
+        image: calderonperaza/ejemplofrontend:1.0.0
         imagePullPolicy: Always
         ports:
         - containerPort: 80
@@ -43,18 +43,17 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: app-ingress
-  namespace: ejemplo 
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+  name: front-ingress
+  namespace: ejemplo
 spec:
   rules:
-    - http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: frontend
-                port:
-                  number: 80          
+  - host: frontend.io
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: frontend
+            port:
+              number: 80
