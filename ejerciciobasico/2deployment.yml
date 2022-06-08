@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:  hola-deploy
+  namespace: prueba
+  labels:
+    app:  hola
+spec:
+  selector:
+    matchLabels:
+      app: hola
+  replicas: 4
+  template:
+    metadata:
+      labels:
+        app:  hola
+    spec:
+      containers:
+      - name:  hola
+        image:  pbitty/hello-from:latest
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+          limits:
+            cpu: 100m
+            memory: 200Mi
+        ports:
+        - containerPort:  80
