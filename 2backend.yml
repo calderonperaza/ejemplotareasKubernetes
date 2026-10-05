@@ -51,6 +51,7 @@ metadata:
   name: backend-ingress
   namespace: ejemplo
 spec:
+  ingressClassName: nginx
   rules:
   - host: backend.io
     http:

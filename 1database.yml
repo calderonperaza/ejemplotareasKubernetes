@@ -54,5 +54,9 @@ spec:
   ports:
     - port: 27017
       targetPort: 27017
-      nodePort: 30017
-  type: NodePort
+  type: ClusterIP
+#      nodePort: 30017  #no va si es ClusterIP
+#  type: NodePort  #cambiar a ClusterIP si no se quiere exponer fuera del cluster
+# nombre del servicio completo: mongo.ejemplo.svc.cluster.local
+#comando para probar con un pod temporal el servicio
+#kubectl run pod-prueba --rm -it --image=curlimages/curl -n default -- curl -v http://mongo.ejemplo.svc.cluster.local:27017
